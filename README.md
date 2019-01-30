@@ -34,9 +34,14 @@ botjaeger_nexmo:
 
 ### Usage
 
-Then call 'botjaeger_nexmo' in the container
+Then call 'botjaeger_nexmo.client' in the container (some simplified methods)
 ```php
-$api = $this->get('botjaeger_nexmo');
+$api = $this->get('botjaeger_nexmo.client');
+...
+```
+Or use the default nexmo client
+```php
+$api = $this->get('default_nexmo.client');
 ...
 ```
 
