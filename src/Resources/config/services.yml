@@ -1,12 +1,19 @@
 services:
-    botjaeger_nexmo.client.credentials.basic:
+    nexmo.client.credentials.basic:
         class: Nexmo\Client\Credentials\Basic
         arguments:
             - '%botjaeger_nexmo.api_key%'
             - '%botjaeger_nexmo.api_secret%'
 
+    default_nexmo.client:
+        public: true
+        class: Nexmo\Client
+        arguments:
+            - '@nexmo.client.credentials.basic'
+
     botjaeger_nexmo.client:
         public: true
         class: Botjaeger\NexmoBundle\NexmoClient\NexmoClient
         arguments:
-            - '@botjaeger_nexmo.client.credentials.basic'
+            - '@default_nexmo.client'
+            - '%botjaeger_nexmo.api_brand%'
