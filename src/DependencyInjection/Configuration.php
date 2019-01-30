@@ -1,5 +1,7 @@
 <?php
 
+namespace Botjaeger\NexmoBundle\DependencyInjection;
+
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -15,7 +17,7 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('botjaeger_nexmo');
         $rootNode = $treeBuilder->root('botjaeger_nexmo');
 
         $rootNode->children()
@@ -29,7 +31,7 @@ class Configuration implements ConfigurationInterface
                 ->isRequired()
                 ->cannotBeEmpty()
                 ->end()
-            ->scalarNode('brand')
+            ->scalarNode('api_brand')
                 ->info('Your Nexmo brand name')
                 ->defaultValue('botjaeger-nexmo-client-bundle')
                 ->end()

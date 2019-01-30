@@ -1,19 +1,24 @@
 <?php
 
+namespace Botjaeger\NexmoBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
-class NexmoExtension extends Extension
+/**
+ * Class NexmoExtension
+ * @package Botjaeger\NexmoBundle\DependencyInjection
+ */
+class BotjaegerNexmoExtension extends Extension
 {
     /**
      * Loads a specific configuration.
      *
      * @param array $configs
      * @param ContainerBuilder $container
-     * @throws Exception
+     * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -22,7 +27,7 @@ class NexmoExtension extends Extension
 
         $container->setParameter('botjaeger_nexmo.api_key', $config['api_key']);
         $container->setParameter('botjaeger_nexmo.api_secret', $config['api_secret']);
-        $container->setParameter('botjaeger_nexmo.brand', $config['brand']);
+        $container->setParameter('botjaeger_nexmo.api_brand', $config['api_brand']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
