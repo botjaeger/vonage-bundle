@@ -28,8 +28,8 @@ public function registerBundles()
 Add the following lines to your config.yml
 ```
 botjaeger_nexmo:
-    api_key: 'my application id'
-    api_secret: 'my application auth key'
+    api_key: 'nexmo_api_key'
+    api_secret: 'nexmo_api_secret'
 ```
 
 ### Usage
