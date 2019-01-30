@@ -1,0 +1,10 @@
+framework:
+    secret: 'test'
+    test: ~
+    session:
+        storage_id: 'session.storage.mock_file'
+
+botjaeger_nexmo:
+    api_key: 'test_api_key'
+    api_secret: 'test_api_secret'
+    api_brand: 'test_brand'
