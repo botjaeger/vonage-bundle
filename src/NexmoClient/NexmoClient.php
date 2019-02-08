@@ -51,29 +51,27 @@ class NexmoClient
 
     /**
      * @param string $requestId
-     * @return \Nexmo\Verify\Verification
-     */
-    public function resendCode(string $requestId)
-    {
-        return $this->client->verify()->trigger($requestId);
-    }
-
-    /**
-     * @param string $requestId
      * @param string $code
      * @return array
+     * @throws \Exception
      */
     public function verifyCode(string $requestId, string $code)
     {
         try {
             $verification = $this->client->verify()->check($requestId, $code);
         } catch (\Exception $exception) {
-            return [
-                'status'    => $exception->getEnity()['status'],
-                'message'   => $exception->getEntity()['error_text']
-            ];
+            throw new \Exception($exception->getMessage());
         }
 
         return $verification;
+    }
+
+    /**
+     * @param string $requestId
+     * @return \Nexmo\Verify\Verification
+     */
+    public function resendCode(string $requestId)
+    {
+        return $this->client->verify()->trigger($requestId);
     }
 }
