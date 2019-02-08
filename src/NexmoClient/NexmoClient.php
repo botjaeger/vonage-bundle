@@ -3,6 +3,7 @@
 namespace Botjaeger\NexmoBundle\NexmoClient;
 
 use Nexmo\Client;
+use Nexmo\Verify\Verification;
 
 class NexmoClient
 {
@@ -28,7 +29,7 @@ class NexmoClient
      * @throws Client\Exception\Request
      * @throws Client\Exception\Server
      */
-    public function send(string $recipient, string $message)
+    public function sendSms(string $recipient, string $message)
     {
         return $this->client->message()->send([
             'to'    => $recipient,
@@ -41,29 +42,40 @@ class NexmoClient
      * @param string $recipient
      * @return \Nexmo\Verify\Verification
      */
-    public function verify(string $recipient)
+    public function verifyRequest(string $recipient)
     {
-        return $this->client->verify()->start([
-            'number'    => $recipient,
-            'brand'     => $this->brand
-        ]);
+        $verification = new Verification($recipient, $this->brand);
+        $this->client->verify()->start($verification);
+        return $verification;
     }
 
     /**
-     * @param string $requestId
+     * @param Verification|string request_id $id
      * @param string $code
      * @return array
      * @throws \Exception
      */
-    public function verifyCode(string $requestId, string $code)
+    public function verifyCode($id, string $code)
     {
         try {
-            $verification = $this->client->verify()->check($requestId, $code);
+            return $this->client->verify()->check($id, $code);
         } catch (\Exception $exception) {
             throw new \Exception($exception->getMessage());
         }
+    }
 
-        return $verification;
+    /**
+     * @param Verification|string request_id $id
+     * @return Verification
+     * @throws \Exception
+     */
+    public function verifySearch($id)
+    {
+        try {
+            return $this->client->verify()->search($id);
+        } catch (\Exception $exception) {
+            throw new \Exception($exception->getMessage());
+        }
     }
 
     /**
