@@ -2,7 +2,7 @@
 
 if [[ "$(docker images -q nexmo 2> /dev/null)" == "" ]]; then
     docker build -t nexmo .
+    docker run -it --rm --name botjaeger-script -v "$PWD":/var/www -w /var/www nexmo composer install -o
 fi
 
-docker run -it --rm --name botjaeger-script -v "$PWD":/var/www -w /var/www nexmo composer install -o
 docker run -it --rm --name botjaeger-script -v "$PWD":/var/www -w /var/www nexmo php vendor/bin/simple-phpunit
