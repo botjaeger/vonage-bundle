@@ -1,5 +1,6 @@
 services:
     nexmo.client.credentials.basic:
+        public: false
         class: Nexmo\Client\Credentials\Basic
         arguments:
             - '%botjaeger_nexmo.api_key%'
