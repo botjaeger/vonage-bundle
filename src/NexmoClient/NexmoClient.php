@@ -57,8 +57,9 @@ class NexmoClient
      */
     public function verifyCode($id, string $code)
     {
+        $verification = new Verification($id);
         try {
-            return $this->client->verify()->check($id, $code);
+            return $this->client->verify()->check($verification, $code);
         } catch (\Exception $exception) {
             throw new \Exception($exception->getMessage());
         }
@@ -71,19 +72,21 @@ class NexmoClient
      */
     public function verifySearch($id)
     {
+        $verification = new Verification($id);
         try {
-            return $this->client->verify()->search($id);
+            return $this->client->verify()->search($verification);
         } catch (\Exception $exception) {
             throw new \Exception($exception->getMessage());
         }
     }
 
     /**
-     * @param string $requestId
+     * @param string $id
      * @return \Nexmo\Verify\Verification
      */
-    public function resendCode(string $requestId)
+    public function resendCode(string $id)
     {
-        return $this->client->verify()->trigger($requestId);
+        $verification = new Verification($id);
+        return $this->client->verify()->trigger($verification);
     }
 }
