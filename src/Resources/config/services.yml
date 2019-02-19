@@ -12,9 +12,9 @@ services:
         arguments:
             - '@nexmo.client.credentials.basic'
 
-    botjaeger_nexmo.client:
+    botjaeger_nexmo.nexmo_client.client:
         public: true
-        class: Botjaeger\NexmoBundle\NexmoClient\NexmoClient
+        class: Botjaeger\NexmoBundle\NexmoClient\Client
         arguments:
             - '@default_nexmo.client'
             - '%botjaeger_nexmo.api_brand%'

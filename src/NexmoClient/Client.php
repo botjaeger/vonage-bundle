@@ -2,20 +2,20 @@
 
 namespace Botjaeger\NexmoBundle\NexmoClient;
 
-use Nexmo\Client;
+use Nexmo\Client as NexmoClient;
 use Nexmo\Verify\Verification;
 
-class NexmoClient
+class Client
 {
     private $client;
     private $brand;
 
     /**
-     * NexmoClient constructor.
-     * @param Client $client
+     * Client constructor.
+     * @param NexmoClient $client
      * @param string $brand
      */
-    public function __construct(Client $client, string $brand)
+    public function __construct(NexmoClient $client, string $brand)
     {
         $this->client = $client;
         $this->brand = $brand;
@@ -25,9 +25,9 @@ class NexmoClient
      * @param string $recipient
      * @param string $message
      * @return \Nexmo\Message\Message
-     * @throws Client\Exception\Exception
-     * @throws Client\Exception\Request
-     * @throws Client\Exception\Server
+     * @throws NexmoClient\Exception\Exception
+     * @throws NexmoClient\Exception\Request
+     * @throws NexmoClient\Exception\Server
      */
     public function sendSms(string $recipient, string $message)
     {
