@@ -7,7 +7,14 @@ use Nexmo\Verify\Verification;
 
 class Client
 {
+    /**
+     * @var NexmoClient
+     */
     private $client;
+
+    /**
+     * @var string
+     */
     private $brand;
 
     /**
