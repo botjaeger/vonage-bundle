@@ -12,4 +12,10 @@ class BotjaegerNexmoExtensionTest extends WebTestCase
         self::bootKernel();
         $this->assertInstanceOf(Client::class, self::$container->get('default_nexmo.client'));
     }
+
+    public function testBotjaegerClient()
+    {
+        self::bootKernel();
+        $this->assertInstanceOf(\Botjaeger\NexmoBundle\NexmoClient\Client::class, self::$container->get('botjaeger_nexmo.nexmo_client.client'));
+    }
 }
