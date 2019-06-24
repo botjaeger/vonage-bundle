@@ -16,7 +16,7 @@
   "require": {
     "php": ">=7.1",
     "nexmo/client": "^1.6",
-    "symfony/symfony": "^3.0|^4.0"
+    "symfony/symfony": "^4.0"
   },
   "require-dev": {
     "symfony/phpunit-bridge": "^3.3"
