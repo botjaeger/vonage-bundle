@@ -19,7 +19,13 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('botjaeger_nexmo');
 
-        $treeBuilder->getRootNode()
+        if (!method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->root('botjaeger_nexmo');
+        } else {
+            $rootNode = $treeBuilder->getRootNode();
+        }
+
+        $rootNode
             ->children()
                 ->scalarNode('api_key')
                     ->info('Your Nexmo API key')
