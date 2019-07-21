@@ -2,8 +2,8 @@
 
 namespace Botjaeger\NexmoBundle;
 
-use Botjaeger\NexmoBundle\DependencyInjection\BotjaegerNexmoExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Botjaeger\NexmoBundle\DependencyInjection\BotjaegerNexmoExtension;
 
 class BotjaegerNexmoBundle extends Bundle
 {

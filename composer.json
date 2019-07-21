@@ -2,7 +2,13 @@
   "name": "botjaeger/nexmo-bundle",
   "description": "Integrates nexmo-php in symfony 3 & 4",
   "type": "symfony-bundle",
-  "keywords": ["symfony", "bundle", "nexmo", "sms", "2fa"],
+  "keywords": [
+    "symfony",
+    "bundle",
+    "nexmo",
+    "sms",
+    "2fa"
+  ],
   "license": "MIT",
   "authors": [
     {
@@ -11,12 +17,15 @@
     }
   ],
   "autoload": {
-    "psr-4": { "Botjaeger\\NexmoBundle\\": "src/" }
+    "psr-4": {
+      "Botjaeger\\NexmoBundle\\": "src/"
+    }
   },
   "require": {
     "php": ">=7.1",
     "nexmo/client": "^1.6",
-    "symfony/symfony": "^3.0|^4.0"
+    "symfony/framework-bundle": "^3.4|^4.1",
+    "symfony/yaml": "^3.4|^4.1"
   },
   "require-dev": {
     "symfony/phpunit-bridge": "^3.3"

@@ -67,11 +67,7 @@ class Client
     public function verifyCode($id, string $code)
     {
         $verification = new Verification($id);
-        try {
-            return $this->client->verify()->check($verification, $code);
-        } catch (Exception $exception) {
-            throw new Exception($exception->getMessage());
-        }
+        return $this->client->verify()->check($verification, $code);
     }
 
     /**
@@ -82,11 +78,7 @@ class Client
     public function verifySearch($id)
     {
         $verification = new Verification($id);
-        try {
-            return $this->client->verify()->search($verification);
-        } catch (Exception $exception) {
-            throw new Exception($exception->getMessage());
-        }
+        return $this->client->verify()->search($verification);
     }
 
     /**

@@ -1,8 +1,12 @@
-FROM composer:1.7.3 AS composer
-FROM php:7.1-cli
+FROM php:7.3-cli-alpine
+WORKDIR /var/www/nexmo-bundle
 
-RUN apt-get -qq update \
-    && apt-get -qq -y install zlib1g-dev unzip \
-    && docker-php-ext-install zip > /dev/null
+COPY . /var/www/nexmo-bundle
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+RUN apk add -q --no-cache bash
+
+# https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV PATH="${PATH}:/root/.composer/vendor/bin"
+
