@@ -1,6 +1,6 @@
 <?php
 
-namespace Botjaeger\NexmoBundle\Tests\DependencyInjection;
+namespace Botjaeger\NexmoBundle\DependencyInjection;
 
 use Nexmo\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;

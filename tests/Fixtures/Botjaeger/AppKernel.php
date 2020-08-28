@@ -1,5 +1,7 @@
 <?php
 
+namespace Botjaeger\NexmoBundle\Fixtures\Botjaeger;
+
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
@@ -8,8 +10,8 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         return [
-            new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Botjaeger\NexmoBundle\BotjaegerNexmoBundle()
+            new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new \Botjaeger\NexmoBundle\BotjaegerNexmoBundle()
         ];
     }
     public function registerContainerConfiguration(LoaderInterface $loader)

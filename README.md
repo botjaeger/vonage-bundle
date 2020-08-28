@@ -13,11 +13,11 @@ composer require botjaeger/nexmo-bundle
 ```
 
 Then add the following line to your app/AppKernel.php
-```php
+```
 public function registerBundles()
 {
     return [
-        ...
+        ...,
         new Botjaeger\NexmoBundle\BotjaegerNexmoBundle(),
     ];
 }
@@ -35,12 +35,12 @@ botjaeger_nexmo:
 ### Usage
 
 Then call 'botjaeger_nexmo.nexmo_client.client' in the container (some simplified methods)
-```php
+```
 $api = $this->get('botjaeger_nexmo.nexmo_client.client');
 ...
 ```
 Or use the default nexmo client
-```php
+```
 $api = $this->get('default_nexmo.client');
 ...
 ```
