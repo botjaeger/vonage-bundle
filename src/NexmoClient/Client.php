@@ -61,7 +61,7 @@ class Client
     /**
      * @param Verification|string request_id $id
      * @param string $code
-     * @return array
+     * @return Verification
      * @throws Exception
      */
     public function verifyCode($id, string $code)
