@@ -28,12 +28,12 @@
     },
     "require": {
         "php": ">=7.1",
-        "nexmo/client-core": "2.1.0",
         "symfony/config": "^3.4|^4.0",
         "symfony/dependency-injection": "^3.4|^4.0",
         "symfony/http-kernel": "^3.4|^4.0",
         "symfony/yaml": "^3.4|^4.0",
-        "symfony/http-client": "^3.4|^4.0"
+        "symfony/http-client": "^3.4|^4.0",
+        "vonage/client-core": "2.1.0"
     },
     "require-dev": {
         "symfony/browser-kit": "^4.3",
@@ -49,11 +49,5 @@
         "symfony": {
             "allow-contrib": "true"
         }
-    },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/Nexmo/nexmo-php.git"
-        }
-    ]
+    }
 }

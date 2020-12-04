@@ -34,11 +34,12 @@ class Client
      * @param string $recipient
      * @param string $message
      * @return Message
+     *
      * @throws NexmoClient\Exception\Exception
      * @throws NexmoClient\Exception\Request
      * @throws NexmoClient\Exception\Server
      */
-    public function sendSms(string $recipient, string $message)
+    public function sendSms(string $recipient, string $message): Message
     {
         return $this->client->message()->send([
             'to'    => $recipient,
@@ -51,10 +52,11 @@ class Client
      * @param string $recipient
      * @return Verification
      */
-    public function verifyRequest(string $recipient)
+    public function verifyRequest(string $recipient): Verification
     {
         $verification = new Verification($recipient, $this->brand);
         $this->client->verify()->start($verification);
+
         return $verification;
     }
 
@@ -62,9 +64,10 @@ class Client
      * @param Verification|string request_id $id
      * @param string $code
      * @return Verification
+     *
      * @throws Exception
      */
-    public function verifyCode($id, string $code)
+    public function verifyCode($id, string $code): Verification
     {
         $verification = new Verification($id);
         return $this->client->verify()->check($verification, $code);
@@ -75,9 +78,10 @@ class Client
      * @return Verification
      * @throws Exception
      */
-    public function verifySearch($id)
+    public function verifySearch($id): Verification
     {
         $verification = new Verification($id);
+
         return $this->client->verify()->search($verification);
     }
 
@@ -85,9 +89,10 @@ class Client
      * @param string $id
      * @return Verification
      */
-    public function resendCode(string $id)
+    public function resendCode(string $id): Verification
     {
         $verification = new Verification($id);
+
         return $this->client->verify()->trigger($verification);
     }
 }
