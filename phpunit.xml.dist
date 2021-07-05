@@ -9,12 +9,12 @@
          beStrictAboutTodoAnnotatedTests="true"
          verbose="true">
     <testsuites>
-        <testsuite name="BotjaegerNexmoBundle Test Suite">
+        <testsuite name="BotjaegerVonageBundle Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
     <php>
-        <server name="KERNEL_CLASS" value="Botjaeger\NexmoBundle\Fixtures\Botjaeger\AppKernel"/>
+        <server name="KERNEL_CLASS" value="Botjaeger\VonageBundle\Fixtures\Botjaeger\AppKernel"/>
     </php>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">

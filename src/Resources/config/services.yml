@@ -1,20 +1,17 @@
 services:
-    nexmo.client.credentials.basic:
-        public: false
-        class: Nexmo\Client\Credentials\Basic
-        arguments:
-            - '%botjaeger_nexmo.api_key%'
-            - '%botjaeger_nexmo.api_secret%'
+  Http\Adapter\Guzzle7\Client: ~
 
-    default_nexmo.client:
-        public: true
-        class: Nexmo\Client
-        arguments:
-            - '@nexmo.client.credentials.basic'
+  vonage.client.credentials.basic:
+    public: false
+    class: Nexmo\Client\Credentials\Basic
+    arguments:
+      - '%botjaeger_vonage.api_key%'
+      - '%botjaeger_vonage.api_secret%'
 
-    botjaeger_nexmo.nexmo_client.client:
-        public: true
-        class: Botjaeger\NexmoBundle\NexmoClient\Client
-        arguments:
-            - '@default_nexmo.client'
-            - '%botjaeger_nexmo.api_brand%'
+  vonage.client:
+    public: true
+    class: Nexmo\Client
+    arguments:
+      - '@vonage.client.credentials.basic'
+      - [ ]
+      - '@Http\Adapter\Guzzle7\Client'

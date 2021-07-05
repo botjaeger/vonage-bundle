@@ -1,6 +1,6 @@
-# Nexmo API for Symfony
+# Vonage (formerly Nexmo) API for Symfony
 
-Symfony integration of the [nexmo/nexmo-php](https://github.com/Nexmo/nexmo-php) client
+Symfony integration of the [vonage/vonage-php-sdk-core](https://github.com/vonage/vonage-php-sdk-core) client
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ Symfony integration of the [nexmo/nexmo-php](https://github.com/Nexmo/nexmo-php)
 Just require the bundle with composer
 
 ```
-composer require botjaeger/nexmo-bundle
+composer require botjaeger/vonage-bundle
 ```
 
 Then add the following line to your app/AppKernel.php
@@ -18,7 +18,7 @@ public function registerBundles()
 {
     return [
         ...,
-        new Botjaeger\NexmoBundle\BotjaegerNexmoBundle(),
+        new Botjaeger\VonageBundle\BotjaegerVonageBundle(),
     ];
 }
 ```
@@ -27,21 +27,15 @@ public function registerBundles()
 
 Add the following lines to your config.yml
 ```
-botjaeger_nexmo:
-    api_key: 'nexmo_api_key'
-    api_secret: 'nexmo_api_secret'
+botjaeger_vonage:
+    api_key: 'vonage_api_key'
+    api_secret: 'vonage_api_secret'
 ```
 
 ### Usage
 
-Then call 'botjaeger_nexmo.nexmo_client.client' in the container (some simplified methods)
 ```
-$api = $this->get('botjaeger_nexmo.nexmo_client.client');
-...
-```
-Or use the default nexmo client
-```
-$api = $this->get('default_nexmo.client');
+$api = $this->get('vonage.client');
 ...
 ```
 

@@ -1,4 +1,4 @@
-FROM php:7.3-cli-alpine
+FROM php:7.4-cli-alpine
 WORKDIR /var/www/nexmo-bundle
 
 COPY . /var/www/nexmo-bundle
